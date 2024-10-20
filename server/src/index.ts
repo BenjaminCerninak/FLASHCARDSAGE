@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 config();
-import express, { Request, Response } from "express";
+import express, { Request, response, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
@@ -30,6 +30,12 @@ app.post("/decks", async (req: Request, res: Response) => {
   });
   const createdDeck = await newDeck.save();
   res.json(createdDeck);
+});
+
+app.delete("/decks/:deckId", async (req: Request, res: Response) => {
+  const deckId = req.params.deckId;
+  const deck = await Deck.findByIdAndDelete(deckId);
+  res.json(deck);
 });
 
 const db = mongoose.connect(process.env.MONGO_URL!).then(() => {
