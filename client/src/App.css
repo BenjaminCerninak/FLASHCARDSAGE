@@ -1,42 +1,127 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Resetování výchozích stylů těla */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex; /* Aktivace flexboxu pro centrování */
+  align-items: center; /* Vertikální centrování */
+  justify-content: center; /* Horizontální centrování */
+  min-height: 100vh; /* Plná výška viewportu */
+  background: linear-gradient(
+    135deg,
+    #a1d6e2,
+    #f1f1f2
+  ); /* Světlejší pozadí s gradientem */
+}
+
+/* Stylování kontejneru aplikace */
+.App {
+  max-width: 1200px; /* Zvětšení maximální šířky pro více sloupců */
+  padding: 40px;
+  background-color: #f1f1f2; /* Světlé pozadí pro kontejner */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Měkčí stín */
+  display: flex;
+  flex-direction: column; /* Uložení dětí vertikálně */
+  align-items: center; /* Horizontální centrování dětí */
+}
+
+/* Stylování nadpisu */
+h1 {
   text-align: center;
+  font-size: 2.5rem; /* Větší písmo */
+  color: #1995ad; /* Hlavní modrá barva */
+  margin-bottom: 20px; /* Prostor pod nadpisem */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Stylování položek seznamu jako karty */
+.decks li {
+  display: block;
+  background-color: #a1d6e2; /* Světlá pozadí pro položky */
+  padding: 30px; /* Větší padding pro karty */
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.3s;
+  border-left: 6px solid #1995ad; /* Modrý okraj */
+  text-align: center; /* Centrovat text v položkách */
+  color: #333; /* Tmavší text pro čitelnost */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Měkčí stín pro karty */
+  font-size: 1.2rem; /* Větší písmo pro karty */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Stylování kontejneru pro karty */
+.decks {
+  display: grid; /* Použití gridu pro tři sloupce */
+  grid-template-columns: repeat(3, 1fr); /* Větší karty s minimální šířkou */
+  margin-left: 0;
+  gap: 40px; /* Větší mezera mezi kartami */
+  width: 100%; /* Zajištění plné šířky seznamu */
+}
+
+/* Efekt při najetí myší na položky */
+.decks li:hover {
+  background-color: #90c3d4; /* Trochu světlejší na hover */
+  transform: translateY(-2px); /* Mírné posunutí nahoru na hover */
+  cursor: pointer;
+}
+
+/* Stylování formuláře */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  width: 100%; /* Zajištění plné šířky formuláře */
+  align-items: center; /* Horizontální centrování formulářových prvků */
+}
+
+/* Stylování popisků */
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1995ad; /* Hlavní modrá barva pro popisky */
+  font-size: 1.1rem; /* Větší písmo pro popisky */
+}
+
+/* Stylování vstupních polí */
+input {
+  padding: 12px;
+  border: 1px solid #ddd; /* Světlý okraj */
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #fff; /* Bílé pozadí pro vstupy */
+  color: #333; /* Tmavý text pro vstupy */
+  width: 100%; /* Zajištění plné šířky vstupů */
+  font-size: 1rem; /* Větší písmo pro vstupy */
+}
+
+/* Stylování tlačítek */
+button {
+  padding: 12px;
+  background-color: #1995ad; /* Modrá barva pro tlačítka */
+  color: rgb(80, 80, 80);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem; /* Větší písmo pro tlačítka */
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%; /* Zajištění plné šířky tlačítka */
+}
+
+/* Efekt při najetí myší na tlačítka */
+button:hover {
+  background-color: #0f7b8c; /* Tmavší modrá při hover */
+  transform: scale(1.05); /* Mírné zvětšení při hover */
+  color: rgb(255, 255, 255);
+}
+
+/* Stylování deaktivovaných tlačítek */
+button:disabled {
+  background-color: #666; /* Tmavě šedá pro deaktivovaná tlačítka */
+  cursor: not-allowed;
+}
+
+/* Media query pro světlý barevný režim */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff; /* Světlé pozadí */
+    color: #333; /* Tmavý text pro světlý režim */
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
