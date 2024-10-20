@@ -10,6 +10,13 @@ function App() {
   const [decks, setDecks] = useState<TDeck[]>([]);
   const [title, setTitle] = useState("");
 
+  async function handleDeleteDeck(deckId: string) {
+    await fetch(`http://localhost:5000/decks/${deckId}`, {
+      method: "DELETE",
+    });
+    setDecks(decks.filter((deck) => deck._id !== deckId));
+  }
+
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
     await fetch("http://localhost:5000/decks", {
@@ -34,7 +41,10 @@ function App() {
     <div className="App">
       <ul className="decks">
         {decks.map((deck) => (
-          <li key={deck._id}>{deck.title}</li>
+          <li key={deck._id}>
+            <button onClick={() => handleDeleteDeck(deck._id)}>x</button>
+            {deck.title}
+          </li>
         ))}
       </ul>
 
