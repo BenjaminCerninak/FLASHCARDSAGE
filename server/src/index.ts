@@ -17,11 +17,8 @@ app.use(
 app.use(express.json());
 
 app.get("/decks", async (req: Request, res: Response) => {
-  // TODO fetch all decks and send back to the user
-
-  const decks = await Deck.find(); // 1. how do we fetch the decks from mongo
-
-  res.json(decks); // 2. how do we send back arr to the UI
+  const decks = await Deck.find();
+  res.json(decks);
 });
 
 app.post("/decks", async (req: Request, res: Response) => {
