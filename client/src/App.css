@@ -35,6 +35,7 @@ h1 {
 
 /* Stylování položek seznamu jako karty */
 .decks li {
+  position: relative;
   display: block;
   background-color: #a1d6e2; /* Světlá pozadí pro položky */
   padding: 30px; /* Větší padding pro karty */
@@ -45,6 +46,16 @@ h1 {
   color: #333; /* Tmavší text pro čitelnost */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Měkčí stín pro karty */
   font-size: 1.2rem; /* Větší písmo pro karty */
+}
+
+.decks li button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: #333;
+  width: 8px;
+  font-size: 13px;
+  background-color: rgba(34, 34, 34, 0.07);
 }
 
 /* Stylování kontejneru pro karty */
