@@ -1,3 +1,6 @@
+import { config } from "dotenv";
+config();
+
 import express, { Request, Response } from "express";
 
 import mongoose from "mongoose";
@@ -16,11 +19,8 @@ app.post("/decks", async (req: Request, res: Response) => {
   res.json(createdDeck);
 });
 
-mongoose
-  .connect(
-    "mongodb+srv://benflashcardsage:3TASauNjZfe9HOdG@cluster0.a1wp9.mongodb.net/"
-  )
-  .then(() => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    app.listen(PORT);
-  });
+mongoose.connect(process.env.MONGO_URI!).then(() => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+  app.listen(PORT);
+});
+console.log("MongoDB URL:", process.env.MONGO_URI);
