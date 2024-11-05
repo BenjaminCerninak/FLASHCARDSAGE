@@ -3,40 +3,50 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #f7f8fc; /* Světle šedé pozadí */
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.decks {
+  display: grid;
+  width: 90%;
+  margin: 2rem auto;
+  grid-gap: 16px; /* Pro větší mezery mezi položkami */
+  grid-template-columns: repeat(3, 1fr);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.decks li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Jemný gradient */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidá jemný stín */
+  font-weight: bold;
+  color: #333; /* Tmavý text */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Styl při hoveru pro lepší interaktivitu */
+.decks li:hover {
+  transform: translateY(-5px); /* Jemný efekt "zdvihu" */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styl pro mobilní zařízení */
+@media (max-width: 768px) {
+  .decks {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Dvě položky na řádek na menších zařízeních */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 480px) {
+  .decks {
+    grid-template-columns: 1fr; /* Jedna položka na řádek na velmi malých zařízeních */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
