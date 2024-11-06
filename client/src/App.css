@@ -9,7 +9,7 @@
 
 .decks {
   display: grid;
-  width: 90%;
+  width: 88%;
   margin: 2rem auto;
   grid-gap: 16px; /* Pro větší mezery mezi položkami */
   grid-template-columns: repeat(3, 1fr);
