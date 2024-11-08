@@ -16,6 +16,7 @@
 }
 
 .decks li {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +30,30 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Styling for the "x" button */
+.decks li button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ff6b6b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.decks li button:hover {
+  background-color: #f15353;
+  transform: scale(1.1);
+}
+
 /* Styl při hoveru pro lepší interaktivitu */
 .decks li:hover {
   transform: translateY(-5px); /* Jemný efekt "zdvihu" */
@@ -38,10 +63,7 @@
 /* Styl pro mobilní zařízení */
 @media (max-width: 768px) {
   .decks {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Dvě položky na řádek na menších zařízeních */
+    grid-template-columns: repeat(2, 1fr); /* Dvě položky na řádek na menších zařízeních */
   }
 }
 
