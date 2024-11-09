@@ -9,10 +9,10 @@ function App() {
   const [title, setTitle] = useState("");
   const [decks, setDecks] = useState<TDeck[]>([]);
 
-async function handleDelete(cardId: string) {
-  deleteDeck(cardId)
+async function handleDelete(deckId: string) {
+  deleteDeck(deckId)
 
-  setDecks(decks.filter((deck)=>deck._id !== cardId))
+  setDecks(decks.filter((deck)=>deck._id !== deckId))
   
 }
 
