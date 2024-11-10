@@ -9,23 +9,22 @@ function App() {
   const [title, setTitle] = useState("");
   const [decks, setDecks] = useState<TDeck[]>([]);
 
-async function handleDelete(deckId: string) {
-  deleteDeck(deckId)
+  async function handleDelete(deckId: string) {
+    deleteDeck(deckId);
 
-  setDecks(decks.filter((deck)=>deck._id !== deckId))
-  
-}
+    setDecks(decks.filter((deck) => deck._id !== deckId));
+  }
 
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
     const createdDeck = await createDeck(title);
     setTitle("");
-    setDecks([...decks, createdDeck])
+    setDecks([...decks, createdDeck]);
   }
 
   useEffect(() => {
     async function fetchDecks() {
-    const newDecks = await getDecks();
+      const newDecks = await getDecks();
       setDecks(newDecks);
     }
     fetchDecks();
@@ -33,11 +32,14 @@ async function handleDelete(deckId: string) {
 
   return (
     <div className="App">
+      <h1> Your Decks</h1>
       <ul className="decks">
         {decks.map((deck) => (
           <li key={deck._id}>
-          <button onClick={()=>handleDelete(deck._id)}>x</button>
-            <p>              <Link to={`decks/${deck._id}`}>{deck.title}</Link>
+            <button onClick={() => handleDelete(deck._id)}>x</button>
+            <p>
+              {" "}
+              <Link to={`decks/${deck._id}`}>{deck.title}</Link>
             </p>
           </li>
         ))}

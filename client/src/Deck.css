@@ -1,8 +1,8 @@
-.App h1 {
+.Deck h1 {
   font-size: 32px;
   text-align: center;
 }
-.decks {
+.cards {
   display: grid;
   width: 88%;
   margin: 2rem auto;
@@ -10,7 +10,7 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.decks li {
+.cards li {
   position: relative;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@
 }
 
 /* Styling for the "x" button */
-.decks li button {
+.cards li button {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -44,13 +44,13 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.decks li button:hover {
+.cards li button:hover {
   background-color: #f15353;
   transform: scale(1.1);
 }
 
 /* Styl při hoveru pro lepší interaktivitu */
-.decks li:hover {
+.cards li:hover {
   transform: translateY(-5px); /* Jemný efekt "zdvihu" */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

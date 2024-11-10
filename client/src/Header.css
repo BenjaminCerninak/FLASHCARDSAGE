@@ -1,0 +1,60 @@
+/* Hlavní styl pro hlavičku */
+.Header {
+  background: linear-gradient(135deg, #f7f8fc, #eaeef3); /* Jemný gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-radius: 12px; /* Nastavení zaoblených rohů */
+}
+
+/* Kontejner pro zarovnání položek */
+.Header .container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px; /* Nastavení zaoblených rohů */
+}
+
+/* Styly pro odkazy v hlavičce */
+.Header .container div a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Header .container div a:hover {
+  background-color: #0073e6; /* Modré pozadí při hoveru */
+  color: #fff;
+}
+
+/* Responsivní nastavení pro menší obrazovky */
+@media (max-width: 768px) {
+  .Header .container {
+    padding: 0 10px;
+  }
+  .Header .container div a {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header {
+    padding: 10px;
+  }
+  .Header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .Header .container div a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
