@@ -9,11 +9,6 @@
     "rootDir": "./",
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "server/src/**/*.ts",  // Všechny TypeScript soubory ve složce server
-    "client/src/**/*.ts"   // Všechny TypeScript soubory ve složce client
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
