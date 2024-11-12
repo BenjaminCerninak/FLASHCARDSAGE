@@ -20,7 +20,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className="page">
-      <Header />
+      {/* <Header />  to be fixed*/}
       <RouterProvider router={router} />
     </div>
   </StrictMode>
