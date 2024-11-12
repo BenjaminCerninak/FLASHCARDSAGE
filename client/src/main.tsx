@@ -4,8 +4,6 @@ import "./index.css";
 import App from "./App.tsx";
 import Deck from "./Deck.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//import { Header } from "./Header.tsx";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +18,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className="page">
-      {/* <Header />  to be fixed*/}
       <RouterProvider router={router} />
     </div>
   </StrictMode>
