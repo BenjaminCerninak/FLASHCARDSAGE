@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import Deck from "./Deck.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Header } from "./Header.tsx";
+//import { Header } from "./Header.tsx";
 
 const router = createBrowserRouter([
   {
