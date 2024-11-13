@@ -17,6 +17,7 @@ function App() {
 
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
+    if (!title) return;
     const createdDeck = await createDeck(title);
     setTitle("");
     setDecks([...decks, createdDeck]);
