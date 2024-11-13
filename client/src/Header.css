@@ -17,22 +17,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 12px; /* Nastavení zaoblených rohů */
+  border-radius: 12px;
 }
 
-/* Styly pro odkazy v hlavičce */
-.Header .container div a {
+/* Styly pro odkaz zpět */
+.Header .back-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: #333;
   font-weight: 600;
   padding: 10px 15px;
   border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
 }
 
-.Header .container div a:hover {
+.Header .back-link:hover {
   background-color: #0073e6; /* Modré pozadí při hoveru */
   color: #fff;
+}
+
+/* Styl šipky */
+.Header .back-link::before {
+  content: "←";
+  margin-right: 8px;
+  font-size: 16px;
 }
 
 /* Responsivní nastavení pro menší obrazovky */
@@ -40,8 +50,9 @@
   .Header .container {
     padding: 0 10px;
   }
-  .Header .container div a {
+  .Header .back-link {
     padding: 8px 12px;
+    font-size: 13px;
   }
 }
 
@@ -53,8 +64,8 @@
     flex-direction: column;
     gap: 10px;
   }
-  .Header .container div a {
-    font-size: 14px;
+  .Header .back-link {
+    font-size: 12px;
     padding: 6px 10px;
   }
 }

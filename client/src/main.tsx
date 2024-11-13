@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App.tsx";
 import Deck from "./Deck.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Header } from "./Header.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -11,7 +13,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/decks/:deckId",
-    element: <Deck />,
+
+    element: (
+      <>
+        <Header />
+        <Deck />
+      </>
+    ),
   },
 ]);
 

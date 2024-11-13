@@ -1,17 +1,13 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <div className="Header">
       <div className="container">
-        <div>
-          <a href={"/"}>FlashCardSage</a>
-        </div>
-        <div>
-          <a href={"/"}>Decks</a>
-        </div>
-        <div>
-          <a href={"login"}>Login</a>
-        </div>
+        <Link to="/" className="back-link">
+          Back To Decks
+        </Link>
       </div>
     </div>
   );

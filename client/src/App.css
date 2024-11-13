@@ -1,37 +1,63 @@
-.App h1 {
-  font-size: 32px;
-  text-align: center;
-}
-.decks {
-  display: grid;
-  width: 88%;
-  margin: 2rem auto;
-  grid-gap: 16px; /* Pro větší mezery mezi položkami */
-  grid-template-columns: repeat(3, 1fr);
+/* Base styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* General App layout */
+.App {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header styling */
+.App h1 {
+  font-size: 36px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Decks container */
+.decks {
+  display: grid;
+  width: 100%;
+  margin-bottom: 40px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+/* Deck items */
 .decks li {
   position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 140px;
-  background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Jemný gradient */
+  height: 8rem;
+  width: 100%;
+  padding: 20px;
+  padding-top: 3rem;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Přidá jemný stín */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-weight: bold;
-  color: #333; /* Tmavý text */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
-/* Styling for the "x" button */
 .decks li button {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+  top: 5px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
   border: none;
   border-radius: 50%;
   background-color: #ff6b6b;
@@ -41,7 +67,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .decks li button:hover {
@@ -49,24 +75,80 @@
   transform: scale(1.1);
 }
 
-/* Styl při hoveru pro lepší interaktivitu */
 .decks li:hover {
-  transform: translateY(-5px); /* Jemný efekt "zdvihu" */
+  transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Styl pro mobilní zařízení */
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+form label {
+  font-size: 18px;
+  color: #555;
+}
+
+form input {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+form button {
+  padding: 14px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .decks {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Dvě položky na řádek na menších zařízeních */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .decks {
-    grid-template-columns: 1fr; /* Jedna položka na řádek na velmi malých zařízeních */
+    grid-template-columns: 1fr;
+  }
+
+  .App {
+    padding: 10px;
+  }
+
+  form input,
+  form button {
+    max-width: 100%;
   }
 }
