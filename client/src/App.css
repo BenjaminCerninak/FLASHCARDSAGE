@@ -56,10 +56,9 @@
   position: absolute;
   top: 5px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 23px;
+  height: 23px;
   border: none;
-  border-radius: 50%;
   background-color: #ff6b6b;
   color: white;
   font-weight: bold;
@@ -104,8 +103,8 @@ form input {
   font-size: 16px;
   width: 100%;
   max-width: 500px;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  border: 1px solid #ddd;
   transition: border-color 0.3s ease;
 }
 
@@ -114,13 +113,26 @@ form input:focus {
   outline: none;
 }
 
+.input-error {
+  border: 2px solid red;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #ffe5e5; /* Light red background */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
 form button {
   padding: 14px 20px;
   font-size: 18px;
   color: #fff;
   background-color: #4caf50;
   border: none;
-  border-radius: 8px;
+  border-radius: 2px;
   cursor: pointer;
   width: 100%;
   max-width: 200px;

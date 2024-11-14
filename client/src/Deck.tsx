@@ -11,6 +11,7 @@ export default function Deck() {
   const [cards, setCards] = useState<String[]>([]);
   const [deck, setDeck] = useState<TDeck | undefined>();
   const { deckId } = useParams();
+  const [isEmptyTitle, setIsEmptyTitle] = useState(false);
 
   async function handleDeleteCard(index: number) {
     if (!deckId) return;
@@ -21,7 +22,14 @@ export default function Deck() {
 
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
+    if (!text.trim()) {
+      setIsEmptyTitle(true);
+      return;
+    }
+
     const { cards: serverCards } = await createCard(deckId!, text);
+    setIsEmptyTitle(false);
+
     setText("");
     setCards(serverCards);
   }
@@ -50,12 +58,17 @@ export default function Deck() {
       <form onSubmit={handleCreateDeck}>
         <label htmlFor="card-text">Card Text</label>{" "}
         <input
+          className={isEmptyTitle ? "input-error" : ""}
           id="card-text"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setText(e.target.value);
+            setIsEmptyTitle(false);
           }}
           value={text}
         />
+        {isEmptyTitle && (
+          <p className="error-message">Pole nesmí být prázdné.</p>
+        )}
         <button>Add Card</button>
       </form>
     </div>

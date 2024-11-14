@@ -8,6 +8,7 @@ import { TDeck } from "./api/getDecks";
 function App() {
   const [title, setTitle] = useState("");
   const [decks, setDecks] = useState<TDeck[]>([]);
+  const [isEmptyTitle, setIsEmptyTitle] = useState(false);
 
   async function handleDelete(deckId: string) {
     deleteDeck(deckId);
@@ -17,8 +18,12 @@ function App() {
 
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
-    if (!title) return;
+    if (!title.trim()) {
+      setIsEmptyTitle(true);
+      return;
+    }
     const createdDeck = await createDeck(title);
+    setIsEmptyTitle(false);
     setTitle("");
     setDecks([...decks, createdDeck]);
   }
@@ -48,12 +53,17 @@ function App() {
       <form onSubmit={handleCreateDeck}>
         <label htmlFor="deck-id">Deck Title</label>{" "}
         <input
+          className={isEmptyTitle ? "input-error" : ""}
           id="deck-id"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setTitle(e.target.value);
+            setIsEmptyTitle(false);
           }}
           value={title}
         />
+        {isEmptyTitle && (
+          <p className="error-message">Pole nesmí být prázdné.</p>
+        )}
         <button>Add Deck</button>
       </form>
     </div>

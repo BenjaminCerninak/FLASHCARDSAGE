@@ -59,6 +59,19 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.input-error {
+  border: 2px solid red;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #ffe5e5; /* Light red background */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
 /* Styl pro mobilní zařízení */
 @media (max-width: 768px) {
   .decks {
