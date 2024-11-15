@@ -23,6 +23,10 @@
   font-weight: bold;
   color: #333; /* Tmavý text */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 8rem;
+  width: 100%;
+  padding: 20px;
+  padding-top: 3rem;
 }
 
 /* Styling for the "x" button */
@@ -53,6 +57,19 @@
 .cards li:hover {
   transform: translateY(-5px); /* Jemný efekt "zdvihu" */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.input-error {
+  border: 2px solid red;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #ffe5e5; /* Light red background */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
 }
 
 /* Styl pro mobilní zařízení */

@@ -13,14 +13,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/decks/:deckId",
-    element: <Deck />,
+
+    element: (
+      <>
+        <Header />
+        <Deck />
+      </>
+    ),
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className="page">
-      <Header />
       <RouterProvider router={router} />
     </div>
   </StrictMode>
