@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const BASE_URL = "http://localhost:5173";
+const BASE_URL = "https://flashcardsben.cfd/";
 
 test.describe("Home Page", () => {
   test.beforeEach(async ({ page }) => {
