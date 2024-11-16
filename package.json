@@ -3,6 +3,8 @@
     "playwright": "^1.48.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.2"
-  }
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
+  },
+  "scripts": {}
 }

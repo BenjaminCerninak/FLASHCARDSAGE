@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1> Your Decks</h1>
+      <h1>Your Decks</h1>
       <ul className="decks">
         {decks.map((deck) => (
           <li key={deck._id}>
@@ -62,7 +62,7 @@ function App() {
           value={title}
         />
         {isEmptyTitle && (
-          <p className="error-message">Pole nesmí být prázdné.</p>
+          <p className="error-message">This field cannot be empty!</p>
         )}
         <button>Add Deck</button>
       </form>
