@@ -67,7 +67,7 @@ export default function Deck() {
           value={text}
         />
         {isEmptyTitle && (
-          <p className="error-message">Pole nesmí být prázdné.</p>
+          <p className="error-message">This field cannot be empty!</p>
         )}
         <button>Add Card</button>
       </form>
