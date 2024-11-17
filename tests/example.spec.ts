@@ -6,7 +6,7 @@ test.describe("Home Page", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(BASE_URL);
   });
-  const deckTitle = "Test Deck1";
+  const deckTitle = `Test Deck1_${Date.now()}`;
   const cardTitle = "Test Card1";
 
   test("should have correct metadata and elements", async ({ page }) => {
@@ -76,9 +76,9 @@ test.describe("Home Page", () => {
   });
 
   test("should delete the deck which was created", async ({ page }) => {
-    const deleteButton = await page.locator(
-      `li:has-text("${deckTitle}") button:has-text("x")`
-    );
+    const deleteButton = await page
+      .locator(`li:has-text("${deckTitle}") button:has-text("x")`)
+      .first();
     await deleteButton.click();
     await page.waitForSelector(`text=${deckTitle}`, { state: "detached" });
   });
