@@ -96,4 +96,15 @@ test.describe("Home Page", () => {
     const emptyDeck = deckList.locator(`text=${emptyDeckTitle}`);
     await expect(emptyDeck).not.toBeVisible();
   });
+
+  test("clean up logic", async ({ page }) => {
+    // Cleanup logic: Delete any decks matching the title before creating new ones
+    const decksToDelete = page.locator(
+      `li:has-text("Test Deck1") button:has-text("x")`
+    );
+    const count = await decksToDelete.count();
+    for (let i = 0; i < count; i++) {
+      await decksToDelete.nth(i).click();
+    }
+  });
 });
