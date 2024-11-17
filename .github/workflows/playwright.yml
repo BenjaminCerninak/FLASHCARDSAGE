@@ -51,4 +51,4 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 22
           remote_path: /public_html  # Cílová složka na Hostingeru
-          source: "./dist/*"  # Složka, kterou chcete deployovat        
+          source: "./client/dist/*"   # Složka, pro deploy       
