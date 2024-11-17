@@ -49,6 +49,7 @@ jobs:
         run: npm ci
 
       - name: Build frontend (dist folder)
+        working-directory: ./client  # Přepne pracovní adresář na složku client
         run: npm run build  # Vytvoří dist složku ve složce client
 
       - name: Deploy to Hostinger via SSH
