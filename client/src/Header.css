@@ -31,6 +31,7 @@
   border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 14px;
+  width: 100%;
 }
 
 .Header .back-link:hover {
