@@ -25,7 +25,7 @@ function App() {
     const createdDeck = await createDeck(title);
     setIsEmptyTitle(false);
     setTitle("");
-    setDecks([...decks, createdDeck]);
+    setDecks((prevDecks) => [...prevDecks, createdDeck]);
   }
 
   useEffect(() => {
