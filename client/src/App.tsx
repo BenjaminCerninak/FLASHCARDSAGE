@@ -36,6 +36,8 @@ function App() {
     fetchDecks();
   }, []);
 
+  // decks.sort((a, b) => a.title.localeCompare(b.title)); //sorting abc... TODO 2nd phase
+
   return (
     <div className="App">
       <h1>Your Decks</h1>

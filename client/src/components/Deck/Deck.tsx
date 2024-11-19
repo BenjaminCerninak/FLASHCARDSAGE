@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Deck.css";
-import { deleteCard } from "./api/deleteCard";
-import { TDeck } from "./api/getDecks";
-import { createCard } from "./api/createCard";
-import { getDeck } from "./api/getDeck";
+import { deleteCard } from "../../api/deleteCard";
+import { TDeck } from "../../api/getDecks";
+import { createCard } from "../../api/createCard";
+import { getDeck } from "../../api/getDeck";
 
 export default function Deck() {
   const [text, setText] = useState("");
