@@ -5,7 +5,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { getDecksController } from "./controllers/getDecksController";
-import { createDeckContoller } from "./controllers/createDeckController";
+import { createDeckController } from "./controllers/createDeckController";
 import { deleteDeckController } from "./controllers/deleteDeckController";
 import { getDeckController } from "./controllers/getDeckController";
 import { deleteCardOnDeckController } from "./controllers/deleteCardOnDeckController";
@@ -26,7 +26,7 @@ app.get("/decks/:deckId", getDeckController);
 app.delete("/decks/:deckId", deleteDeckController);
 app.delete("/decks/:deckId/cards/:index", deleteCardOnDeckController);
 
-app.post("/decks", createDeckContoller);
+app.post("/decks", createDeckController);
 app.post("/decks/:deckId/cards", createCardForDeckController);
 
 mongoose.connect(process.env.MONGO_URI!).then(() => {
