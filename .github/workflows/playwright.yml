@@ -33,34 +33,34 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # deploy:
-   #  needs: test  # Zajištění, že nasazení proběhne až po úspěšných testech
-   #  runs-on: ubuntu-latest
-  #   steps:
-   #    - name: Checkout repository
-    #     uses: actions/checkout@v4
+  deploy:
+    needs: test  # Zajištění, že nasazení proběhne až po úspěšných testech
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    #   - name: Setup Node.js
-    #    uses: actions/setup-node@v4
-     #    with:
-      #     node-version: 20
+      - name: Setup Node.js
+       uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-     #  - name: Install dependencies
-       #  run : npm install react react-dom react-router-dom vite @vitejs/plugin-react
-           #    npm install --save-dev @types/react @types/react-dom
-           #    npm ci
+      - name: Install dependencies
+        run : npm install react react-dom react-router-dom vite @vitejs/plugin-react
+              npm install --save-dev @types/react @types/react-dom
+              npm ci
 
 
-   #    - name: Build frontend (dist folder)
-    #     working-directory: ./client  # Přepne pracovní adresář na složku client
-     #    run: npm run build  # Vytvoří dist složku ve složce client
+      - name: Build frontend (dist folder)
+        working-directory: ./client  # Přepne pracovní adresář na složku client
+        run: npm run build  # Vytvoří dist složku ve složce client
 
-     #  - name: Deploy to Hostinger via SSH
-     #    uses: appleboy/ssh-action@v0.1.5
-     #    with:
-       #    host: ${{ secrets.HOSTINGER_HOST }}
-        #   username: ${{ secrets.HOSTINGER_USERNAME }}
-        #   key: ${{ secrets.HOSTINGER_SSH_KEY }}
-        #   port: 22
-         #  remote_path: /public_html  # Cílová složka na Hostingeru
-        #   source: "./client/dist/*"  # Cesta ke složce dist v klientské části
+      - name: Deploy to Hostinger via SSH
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: 22
+          remote_path: /public_html  # Cílová složka na Hostingeru
+          source: "./client/dist/*"  # Cesta ke složce dist v klientské části
